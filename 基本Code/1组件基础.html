@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>react基础</title>
+  <script src="./public/js/react@16.js"></script>
+  <script src="./public/js/react-dom@16.js"></script>
+
+  <!-- <script src="like_button.js"></script> -->
+</head>
+
+<body>
+  <div id="btn"></div>
+
+  <script>
+    let container = document.querySelector('#btn')
+
+    // 1 创建组件实例
+    class buttonCOM extends React.Component {
+      // 构造
+      constructor(props) {
+        super(props)
+        this.state = false
+      }
+
+      // render函数
+      render() {
+        return React.createElement(
+
+          'button',
+
+          {
+            // 自定义属性
+            'data-name': 'myBtnCom',
+            // 注册点击事件
+            onClick: () => {
+              console.log(this)   // 函数中的this是当前组件对象
+              this.setState({
+                state: true
+              })
+            }
+          },
+
+          this.state.toString()
+          // '点击按钮'
+        )
+      }
+    }
+    let btn1 = React.createElement(buttonCOM)
+
+    console.log(btn1)
+
+    // 2 渲染到容器中
+    ReactDOM.render(btn1, container)
+  </script>
+</body>
+
+</html>

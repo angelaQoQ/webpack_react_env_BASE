@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <script src='./public/js/react@16.js'></script>
+  <script src='./public/js/react-dom@16.js'></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+
+  </div>
+
+</body>
+<script>
+  let data = [1, 2, 3, 4]
+  // 创建组件
+  class liCom extends React.Component {
+    constructor(props) {
+      super(props)
+    }
+
+    render() {
+      return React.createELement(
+        'li'
+        , {
+          className: 'i',
+          onClick: () => {
+            console.log(this)
+          }
+        },
+        'LI'
+      )
+    }
+  }
+
+  data.forEach((item, index) => {
+    React.createELement(liCom)
+  })
+</script>
+
+</html>
